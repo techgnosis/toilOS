@@ -74,7 +74,6 @@ It would be fun to experiment with a simpler OS. Something like
 * /etc/passwd
 * /etc/group
 * /etc/resolv.conf
-* /etc/hosts
 
 
 ### LIKELY WONT WORK
