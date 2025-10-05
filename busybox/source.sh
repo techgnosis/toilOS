@@ -9,7 +9,7 @@ if [ ! -d source ]; then
   https://git.busybox.net/busybox source
 fi
 
-cp build-busybox.sh source/
+cp build.sh source/
 
 
 podman run \
@@ -17,4 +17,4 @@ podman run \
 -w /root/source \
 --rm \
 localhost/musl-builder:1 \
-sh -c "/root/source/build-busybox.sh"
+sh -c "/root/source/build.sh"
