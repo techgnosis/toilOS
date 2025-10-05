@@ -2,7 +2,7 @@
 
 # Configure for mdev and static linking
 make defconfig
-exit
+
 # Enable mdev and static build
 sed -i 's/# CONFIG_MDEV is not set/CONFIG_MDEV=y/' .config
 sed -i 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/' .config
