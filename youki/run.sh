@@ -2,10 +2,13 @@
 
 set -euo pipefail
 
+cp build.sh source/
+
 podman run \
 -v $(pwd)/source:/root/source \
 -w /root/source \
--it \
 --rm \
-alpine:3.22.1 \
-sh
+alpine:3.20 \
+sh -c "/root/source/build.sh"
+
+cp source/micro .
