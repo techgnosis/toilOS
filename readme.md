@@ -1,20 +1,19 @@
-Ken
+# toilOS
 
-Dedicated drive
-Create the file tree from Arch
-Make the filesystem a git repo from Arch
-Create an EFI Boot Mgr entry to boot into your dedicated drive
-Full static link everything wuth musl
+hard to use, easy to understand
 
+toilOS is defined by what is not included. You have to do absolutely everything to get it setup.
+* No boot loader. Hard dependency on EFI Boot Manager. BIOS not supported.
+* No initramfs. Kernel includes all storage and filesystem drivers
+* No dynamic linking. All executables are static linked with musl
+* No service manager. The system starts with `busybox init` and that's it
+* No networkmanager. Network devices are bootstrapped with `ip` and resolv.conf is manual
+* No dhcpd. Static IPs only.
 
-Learn from Oasis
-https://github.com/oasislinux/oasis
+Inspiration
+* Oasis - https://github.com/oasislinux/oasis
+* EasyOS - https://easyos.org/about/how-and-why-easyos-is-different.html
 
-The most important component is busybox
-https://linux.die.net/man/1/busybox
-
-
-Build everything in a container. Make it easy to build this OS from any distro without making a mess
 
 ### Repo structure
 * Directories named for the binaries they build
@@ -26,10 +25,13 @@ Build everything in a container. Make it easy to build this OS from any distro w
 
 ###  filesystem layout
 It would be fun to experiment with a simpler OS. Something like
-* /os (includes the kernel and all tools)
+* /os (instead of /boot, /usr, /bin, /sbin)
 * /home
 * /etc
-* the rest of the required filesystems like /proc
+* /proc
+* /sys
+* /dev
+* /var (includes /var/tmp)
 
 
 
@@ -58,9 +60,9 @@ It would be fun to experiment with a simpler OS. Something like
 * busybox mdev
 * Not udevd
 * /dev/console
-* /dev/tty*
-* DO THIS LAST
-    * Focus on chroot and static builds first
+* /dev/tty1
+* /dev/null
+* /dev/zero
 
 ### Editor
 * micro
@@ -69,9 +71,8 @@ It would be fun to experiment with a simpler OS. Something like
 * busybox ip
 
 ### Files
-* /etc/inittab
-* /etc/fstab
-* /etc/passwd
+* /etc/inittab - must have so that getty can respawn if you logout
+* /etc/passwd - must have to be able to login
 * /etc/group
 * /etc/resolv.conf
 

@@ -1,0 +1,2 @@
+::sysinit:/os/init.sh
+tty1::respawn:/os/getty 38400 tty1

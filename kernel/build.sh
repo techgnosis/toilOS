@@ -4,14 +4,14 @@ apk update
 
 apk add \
 build-base \
-ncurses-dev \
 bc \
 flex \
 bison \
 perl \
 openssl-dev \
-elfutils-dev
+elfutils-dev \
+python3
 
-make defconfig
+make tinyconfig
 
 make
