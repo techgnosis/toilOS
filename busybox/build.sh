@@ -5,8 +5,6 @@ perl \
 musl-dev \
 gcc \
 make \
-cmake \
-pkgconf \
 linux-headers
 
 
