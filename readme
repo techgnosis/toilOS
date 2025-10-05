@@ -10,15 +10,19 @@ Full static link everything wuth musl
 Learn from Oasis
 https://github.com/oasislinux/oasis
 
+The most important component is busybox
+https://linux.die.net/man/1/busybox
+
 
 Build everything in a container. Make it easy to build this OS from any distro without making a mess
 
 Repo structure
 * Directories named for the binaries they build
 * Each contains
-    * Source tarball
-    * Dockerfile
-    * Ideally nothing else
+    * `source` directory
+    * source.sh - download the source
+    * build.sh - install apk pacakges and build the source
+    * run.sh - run build.sh in an alpine container
 
 
 
