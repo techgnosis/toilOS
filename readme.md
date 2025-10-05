@@ -1,5 +1,9 @@
 # toilOS
 
+TODO:
+* a non-root user
+* busybox symlinks
+
 hard to use, easy to understand
 
 toilOS is defined by what is not included. You have to do absolutely everything to get it setup.
@@ -25,8 +29,9 @@ Inspiration
 
 ###  filesystem layout
 It would be fun to experiment with a simpler OS. Something like
-* /os (instead of /boot, /usr, /bin, /sbin)
-* /home
+* /boot
+* /os (instead of /usr, /bin, /sbin, , /lib, /opt)
+* /root (root is the only user so I don't need /home)
 * /etc
 * /proc
 * /sys
@@ -64,6 +69,11 @@ It would be fun to experiment with a simpler OS. Something like
 * /dev/null
 * /dev/zero
 
+### Containers
+* youki (instead of runc)
+    * rust
+    * built static already
+
 ### Editor
 * micro
 
@@ -77,14 +87,9 @@ It would be fun to experiment with a simpler OS. Something like
 * /etc/resolv.conf
 
 
-### LIKELY WONT WORK
+### Wayland
 
-#### Containers
-* podman
-* buildah
-* youki (instead of runc)
-    * rust
-    * built static already
+It's probably not possible to static link a Wayland compositor. However, this is what I would do if I could.
 
 #### Browser
 * wpewebkit + minibrowser
@@ -99,10 +104,10 @@ It would be fun to experiment with a simpler OS. Something like
 
 
 ### Install
-Needs to happen from a running Linux host
+Needs to happen from a running Linux host. Installation requires the `umoci` CLI
 
 * fdisk the disk
-* mkfs.ext4
-* mkdir
-* copy all the files
-* run efibootmgr to setup boot
+* mkfs.ext4 the partition
+* run install/build.sh
+* `umoci raw unpack` to partition
+* run install/efi.sh to setup boot manager
