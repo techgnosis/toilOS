@@ -1,8 +1,8 @@
 # toilOS
 
 TODO:
-* a non-root user
 * busybox symlinks
+* see if /run gets populated in this minimal environment
 
 hard to use, easy to understand
 
@@ -14,10 +14,22 @@ toilOS is defined by what is not included. You have to do absolutely everything 
 * No networkmanager. Network devices are bootstrapped with `ip` and resolv.conf is manual
 * No dhcpd. Static IPs only.
 
+Motivation
+* understand every file on disk
+* understand every running process
+* understand every step of booting the system
+* understand exactly what a modern distro does for you
+
 Inspiration
 * Oasis - https://github.com/oasislinux/oasis
 * EasyOS - https://easyos.org/about/how-and-why-easyos-is-different.html
 
+### Boot
+* The kernel has storage drivers compiled in.
+* The kernel will automatically mount a devtmpfs. You do not need to do it.
+* EFI Boot Manager -> Kernel -> devtmpfs -> /dev/sda -> /os/init
+* using `busybox init` so that we can use inittab. I want inittab so that it can "respawn" a getty if I logout. If I launch a getty manually it will end when I logout
+* not using `/etc/fstab`. Since I already have `/etc/inittab` then I am mounting via a script which gives me more options and you don't have to know the file format for `/etc/fstab`
 
 ### Repo structure
 * Directories named for the binaries they build
@@ -25,7 +37,6 @@ Inspiration
     * `source` directory
     * source.sh - download the source
     * build.sh - install apk pacakges and build the source
-    * run.sh - run build.sh in an alpine container
 
 ###  filesystem layout
 It would be fun to experiment with a simpler OS. Something like
