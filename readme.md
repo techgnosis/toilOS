@@ -22,6 +22,7 @@ Inspiration
 
 TODO:
 * busybox symlinks
+* ostree?
 
 
 ### Boot
