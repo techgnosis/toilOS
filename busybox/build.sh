@@ -1,19 +1,14 @@
 #! /bin/sh
 
-# Configure for mdev and static linking
+apk add perl
+make clean
 make defconfig
 
-# Enable mdev and static build
 sed -i 's/# CONFIG_MDEV is not set/CONFIG_MDEV=y/' .config
 sed -i 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/' .config
 
-# Build
 make CC="gcc -static" LDFLAGS="-static"
 
-# Copy output
-cp busybox /output/busybox
-
-# Verify static
 if ldd busybox 2>&1 | grep -q "not a dynamic executable"; then
     echo "BusyBox is statically linked"
 else

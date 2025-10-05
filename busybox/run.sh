@@ -2,17 +2,19 @@
 
 set -euo pipefail
 
-if [ ! -d busybox ]; then
-  git clone --depth 1 --branch 1_36_1 https://git.busybox.net/busybox
+if [ ! -d source ]; then
+  git clone \
+  --depth 1 \
+  --branch 1_36_1 \
+  https://git.busybox.net/busybox source
 fi
 
-cp build-busybox.sh busybox/
+cp build-busybox.sh source/
 
 
 podman run \
--v $(pwd)/busybox:/root/busybox \
--w /root/busybox \
+-v $(pwd)/source:/root/source \
+-w /root/source \
 --rm \
--it \
 localhost/musl-builder:1 \
-sh # -c "/root/busybox/build-busybox.sh"
+sh -c "/root/source/build-busybox.sh"
