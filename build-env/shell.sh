@@ -5,5 +5,5 @@ set -euo pipefail
 podman run \
 -it \
 --rm \
-alpine:3.20 \
+musl-builder:1 \
 sh
