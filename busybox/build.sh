@@ -1,6 +1,16 @@
 #! /bin/sh
 
-apk add perl
+apk add --no-cache \
+perl \
+musl-dev \
+gcc \
+make \
+cmake \
+pkgconf \
+linux-headers
+
+
+
 make clean
 make defconfig
 

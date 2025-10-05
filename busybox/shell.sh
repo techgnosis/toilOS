@@ -7,5 +7,5 @@ podman run \
 -w /root/source \
 -it \
 --rm \
-localhost/musl-builder:1 \
+alpine:3.20 \
 sh

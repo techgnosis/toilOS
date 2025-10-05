@@ -16,5 +16,5 @@ podman run \
 -v $(pwd)/source:/root/source \
 -w /root/source \
 --rm \
-localhost/musl-builder:1 \
+alpine:3.20 \
 sh -c "/root/source/build.sh"
