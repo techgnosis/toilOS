@@ -1,0 +1,18 @@
+FROM alpine:3.20
+
+RUN apk add --no-cache \
+    musl-dev \
+    gcc \
+    make \
+    cmake \
+    git \
+    pkgconf \
+    linux-headers \
+    libcap-dev \
+    libcap-static \
+    zlib-dev \
+    zlib-static \
+    libpng-dev \
+    libpng-static \
+    rust \
+    cargo
