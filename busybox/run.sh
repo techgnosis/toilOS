@@ -18,3 +18,5 @@ podman run \
 --rm \
 alpine:3.20 \
 sh -c "/root/source/build.sh"
+
+cp source/busybox .
