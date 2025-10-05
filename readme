@@ -1,0 +1,86 @@
+JamesOS
+
+Dedicated drive
+Create the file tree from Arch
+Make the filesystem a git repo from Arch
+Create an EFI Boot Mgr entry to boot into your dedicated drive
+Full static link everything wuth musl
+
+
+Learn from Oasis
+https://github.com/oasislinux/oasis
+
+
+Build everything in a container. Make it easy to build this OS from any distro without making a mess
+
+Repo structure
+* Directories named for the binaries they build
+* Each contains
+    * Source tarball
+    * Dockerfile
+    * Ideally nothing else
+
+
+
+Kernel
+* with all the needed disk drivers. I don’t want an initramfs.
+* Need to figure out what drivers I need
+* Needs EFI Stub
+* make tinyconfig
+
+Init
+* busybox init
+
+Shell
+* busybox getty
+* busybox login
+
+Filesystems
+* busybox mount
+
+Devices
+* busybox mdev
+* Not udevd
+* /dev/console
+* /dev/tty*
+* DO THIS LAST
+    * Focus on chroot and static builds first
+
+Editor
+* micro
+
+Wayland
+* Needs to be musl friendly
+* sway, dwl, river
+
+Terminal emulator
+* kitty
+
+Network
+* busybox ip
+
+Containers
+* podman
+* buildah
+* youki (instead of runc)
+    * rust
+    * built static already
+
+Browser
+* wpewebkit + minibrowser
+
+Files
+* /etc/inittab
+* /etc/fstab
+* /etc/passwd
+* /etc/group
+* /etc/resolv.conf
+* /etc/hosts
+
+
+
+OUT OF SCOPE
+* I can do these things from Arch
+* mkext4
+* efibootmgr
+* fdisk
