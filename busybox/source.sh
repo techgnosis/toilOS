@@ -9,5 +9,5 @@ cp build-busybox.sh busybox/
 docker run \
 -v $(pwd)/busybox:/root/busybox \
 -w /root/busybox \
-musl-builder:latest \
+musl-builder:1 \
 build.sh
