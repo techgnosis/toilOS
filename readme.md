@@ -16,7 +16,7 @@ https://linux.die.net/man/1/busybox
 
 Build everything in a container. Make it easy to build this OS from any distro without making a mess
 
-Repo structure
+### Repo structure
 * Directories named for the binaries they build
 * Each contains
     * `source` directory
@@ -24,25 +24,37 @@ Repo structure
     * build.sh - install apk pacakges and build the source
     * run.sh - run build.sh in an alpine container
 
+###  filesystem layout
+It would be fun to experiment with a simpler OS. Something like
+* /os (includes the kernel and all tools)
+* /home
+* /etc
+* the rest of the required filesystems like /proc
 
 
-Kernel
+
+### Kernel
 * with all the needed disk drivers. I don’t want an initramfs.
 * Need to figure out what drivers I need
 * Needs EFI Stub
 * make tinyconfig
 
-Init
+### Init
 * busybox init
 
-Shell
+### Shell
 * busybox getty
 * busybox login
 
-Filesystems
+### Core utils
+* busybox is great but lacks features sometimes
+* coreutils-rs
+* sbase
+
+### Filesystems
 * busybox mount
 
-Devices
+### Devices
 * busybox mdev
 * Not udevd
 * /dev/console
@@ -50,30 +62,13 @@ Devices
 * DO THIS LAST
     * Focus on chroot and static builds first
 
-Editor
+### Editor
 * micro
 
-Wayland
-* Needs to be musl friendly
-* sway, dwl, river
-
-Terminal emulator
-* kitty
-
-Network
+### Network
 * busybox ip
 
-Containers
-* podman
-* buildah
-* youki (instead of runc)
-    * rust
-    * built static already
-
-Browser
-* wpewebkit + minibrowser
-
-Files
+### Files
 * /etc/inittab
 * /etc/fstab
 * /etc/passwd
@@ -82,9 +77,32 @@ Files
 * /etc/hosts
 
 
+### LIKELY WONT WORK
 
-OUT OF SCOPE
-I can do these things from Arch
-* mkext4
-* efibootmgr
-* fdisk
+#### Containers
+* podman
+* buildah
+* youki (instead of runc)
+    * rust
+    * built static already
+
+#### Browser
+* wpewebkit + minibrowser
+
+#### Terminal emulator
+* kitty
+
+#### Wayland
+* Needs to be musl friendly
+* sway, dwl, river
+
+
+
+### Install
+Needs to happen from a running Linux host
+
+* fdisk the disk
+* mkfs.ext4
+* mkdir
+* copy all the files
+* run efibootmgr to setup boot
