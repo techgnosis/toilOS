@@ -1,18 +1,6 @@
 # toilOS
 
-TODO:
-* busybox symlinks
-* see if /run gets populated in this minimal environment
-
 hard to use, easy to understand
-
-toilOS is defined by what is not included. You have to do absolutely everything to get it setup.
-* No boot loader. Hard dependency on EFI Boot Manager. BIOS not supported.
-* No initramfs. Kernel includes all storage and filesystem drivers
-* No dynamic linking. All executables are static linked with musl
-* No service manager. The system starts with `busybox init` and that's it
-* No networkmanager. Network devices are bootstrapped with `ip` and resolv.conf is manual
-* No dhcpd. Static IPs only.
 
 Motivation
 * understand every file on disk
@@ -20,9 +8,21 @@ Motivation
 * understand every step of booting the system
 * understand exactly what a modern distro does for you
 
+toilOS is defined by what is not included. You have to do absolutely everything to get it setup and its as lean as possible.
+* No boot loader. Hard dependency on EFI Boot Manager. BIOS not supported.
+* No initramfs. Kernel includes all storage and filesystem drivers
+* No dynamic linking. All executables are static linked with musl
+* No service manager. The system starts with `busybox init` and that's it
+* No networkmanager. Network devices are bootstrapped with `ip` and resolv.conf is manual
+* No dhcpd. Static IPs only.
+
 Inspiration
 * Oasis - https://github.com/oasislinux/oasis
 * EasyOS - https://easyos.org/about/how-and-why-easyos-is-different.html
+
+TODO:
+* busybox symlinks
+
 
 ### Boot
 * The kernel has storage drivers compiled in.
@@ -39,15 +39,14 @@ Inspiration
     * build.sh - install apk pacakges and build the source
 
 ###  filesystem layout
-It would be fun to experiment with a simpler OS. Something like
-* /boot
-* /os (instead of /usr, /bin, /sbin, , /lib, /opt)
-* /root (root is the only user so I don't need /home)
-* /etc
-* /proc
-* /sys
-* /dev
-* /var (includes /var/tmp)
+* /boot - EFI requires a separate fat32 EFI partition
+* /os - instead of /usr, /bin, /sbin, , /lib, /opt
+* /root - root is the only user so I don't need /home
+* /etc - core tools require it
+* /proc - valuable and essentially free, required by many tools
+* /sys - must have for tools like `ip`
+* /dev - must have
+* /var - core tools require it
 
 
 
