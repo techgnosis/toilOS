@@ -98,19 +98,17 @@ TODO:
 * /etc/resolv.conf
 
 
-### Wayland
-
-It's probably not possible to static link a Wayland compositor. However, this is what I would do if I could.
-
 #### Browser
 * wpewebkit + minibrowser
 
 #### Terminal emulator
-* kitty
+* Can't be a modern GPU rendered one like kitty or alacritty
+* Must support software rendering
 
 #### Wayland
 * Needs to be musl friendly
-* sway, dwl, river
+* must use software rendering
+* dwl
 
 
 
