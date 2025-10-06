@@ -22,7 +22,7 @@ Inspiration
 
 TODO:
 * busybox symlinks
-* ostree?
+* install Silverblue so I can use ostree eventually
 
 
 ### Boot
@@ -120,5 +120,4 @@ Needs to happen from a running Linux host. Installation requires the `umoci` CLI
 * fdisk the disk
 * mkfs.ext4 the partition
 * run install/build.sh
-* `umoci raw unpack` to partition
 * run install/efi.sh to setup boot manager

@@ -14,4 +14,4 @@ python3
 
 make tinyconfig
 
-make
+./scripts/kconfig/merge_config.sh .config storage.config
