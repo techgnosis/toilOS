@@ -10,3 +10,4 @@ if [ ! -d source ]; then
 fi
 
 cp storage.config source/
+cp build.sh source/
