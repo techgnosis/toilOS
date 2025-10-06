@@ -108,7 +108,7 @@ TODO:
 #### Wayland
 * Needs to be musl friendly
 * must use software rendering
-* dwl
+* dwl or velox (velox has been proven by Oasis)
 
 
 
