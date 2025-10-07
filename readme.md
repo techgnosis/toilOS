@@ -21,7 +21,6 @@ Inspiration
 * EasyOS - https://easyos.org/about/how-and-why-easyos-is-different.html
 
 TODO:
-* script to populate file tree with executables and symlinks
 * qemu image and boot. no boot loader, EFI only still.
 * kernel with embedded cmdline flags and ideally the intel microcode
 
