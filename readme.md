@@ -26,13 +26,14 @@ TODO:
 
 
 ### Every step
-* EFI boot manager has nothing in NVRAM. It defaults to looking for `\EFI\BOOT\BOOTX64.EFI`
-* The kernel is an EFI application and since it is launched directly from EFI
-* The kernel has storage drivers compiled in so there is no initramfs
-* Absent an initrams, the kernel will automatically mount a devtmpfs
+* If the EFI boot manager has nothing in NVRAM for the device then it defaults to looking for `\EFI\BOOT\BOOTX64.EFI`
+* The kernel is sitting in the ESP at `\EFI\BOOT\` and it is named `BOOTX64.EFI`
+* The kernel is an EFI application and so it is launched directly from EFI without a boot loader
+* The kernel has storage drivers compiled in so we don't need an initramfs
+* Absent an initramfs, the kernel will automatically mount a devtmpfs
 * We told the kernel what partition has the root and where the init process is so it mounts the root and runs init
 * init can technically be anything executable but usually a purpose-built init process responds to signals and does some handy things. init is actually `busybox init` so that we can use inittab. I want inittab so that it can "respawn" a getty if I logout. If I launch a getty manually it will end when I logout. I'm tempted to let that happen but there's no way to fix it if you logout. You would just have to restart. That seems overly toil-ish even for me. Or does it...
-* not using `/etc/fstab`. Since I already have `/etc/inittab` then I am mounting via a script which gives me more options and you don't have to know the file format for `/etc/fstab`
+
 
 ### Repo structure
 * Directories named for the binaries they build
@@ -43,13 +44,12 @@ TODO:
 
 ###  filesystem layout
 * /boot - EFI requires a separate fat32 EFI partition
-* /os - instead of /usr, /bin, /sbin, , /lib, /opt
+* /os - instead of /usr, /bin, /sbin, /lib, /opt
 * /root - root is the only user so I don't need /home
 * /etc - core tools require it
 * /proc - valuable and essentially free, required by many tools
 * /sys - must have for tools like `ip`
 * /dev - must have
-* /var - core tools require it
 
 
 
