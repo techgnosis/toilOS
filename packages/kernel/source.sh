@@ -8,6 +8,3 @@ if [ ! -d source ]; then
   --branch v6.17 \
   https://github.com/torvalds/linux.git source
 fi
-
-cp storage.config source/
-cp build.sh source/

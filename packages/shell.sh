@@ -3,8 +3,8 @@
 set -euo pipefail
 
 podman run \
--v $(pwd)/source:/root/source \
--w /root/source \
+-v $(pwd):/root \
+-w /root \
 -it \
 --rm \
 alpine:3.22.1 \

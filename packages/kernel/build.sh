@@ -1,5 +1,7 @@
 #! /bin/sh
 
+cd source
+
 apk update
 
 apk add \
@@ -11,6 +13,9 @@ perl \
 openssl-dev \
 elfutils-dev \
 python3
+
+cp storage.config source/
+cp cmdline.config source/
 
 # you have to use defconfig
 # the config made by tinyconfig does not have all the fields

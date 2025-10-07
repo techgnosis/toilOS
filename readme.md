@@ -2,12 +2,13 @@
 
 hard to use, easy to understand
 
-Motivation
+## Motivation
 * understand every file on disk
 * understand every running process
 * understand every step of booting the system
 * understand exactly what a modern distro does for you
 
+## Design
 toilOS is defined by what is not included. You have to do absolutely everything to get it setup and its as lean as possible.
 * No boot loader. Hard dependency on EFI Boot Manager. BIOS not supported.
 * No initramfs. Kernel includes all storage and filesystem drivers
@@ -16,12 +17,16 @@ toilOS is defined by what is not included. You have to do absolutely everything 
 * No networkmanager. Network devices are bootstrapped with `ip` and resolv.conf is manual
 * No dhcpd. Static IPs only.
 
-Inspiration
+
+## Inspiration
 * Oasis - https://github.com/oasislinux/oasis
 * EasyOS - https://easyos.org/about/how-and-why-easyos-is-different.html
 
-Themes
+## Themes
+This OS has no purpose. These are some ideas.
 * ZigOS - system has nothing but zig. have to write your own userland.
+* Zig+Golang - only syscalls.
+* docsOS - everything is absurdly documented. Read all about every executable and every line of every config file
 
 ### Every step
 * If the EFI boot manager has nothing in NVRAM for the device then it defaults to looking for `\EFI\BOOT\BOOTX64.EFI`
@@ -37,7 +42,7 @@ Themes
 * Directories named for the binaries they build
 * Each contains
     * `source` directory
-    * source.sh - download the source
+    * source.sh - download the source into `source` directory
     * build.sh - install apk packages and build the source
 
 ###  filesystem layout
