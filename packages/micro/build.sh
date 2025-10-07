@@ -1,6 +1,8 @@
 #! /bin/sh
 
-apk add --no-cache \
+cd source
+
+apk add \
 go \
 make
 

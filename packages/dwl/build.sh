@@ -1,5 +1,7 @@
 #! /bin/sh
 
+cd source
+
 apk add \
 musl-dev \
 gcc \
