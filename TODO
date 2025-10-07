@@ -1,0 +1,3 @@
+* qemu image and boot. no boot loader, EFI only still.
+* kernel with embedded cmdline flags and ideally the intel microcode
+* slim down busybox

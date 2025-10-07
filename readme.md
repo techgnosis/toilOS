@@ -23,12 +23,6 @@ Inspiration
 Themes
 * ZigOS - system has nothing but zig. have to write your own userland.
 
-TODO:
-* qemu image and boot. no boot loader, EFI only still.
-* kernel with embedded cmdline flags and ideally the intel microcode
-* slim down busybox
-
-
 ### Every step
 * If the EFI boot manager has nothing in NVRAM for the device then it defaults to looking for `\EFI\BOOT\BOOTX64.EFI`
 * The kernel is sitting in the ESP at `\EFI\BOOT\` and it is named `BOOTX64.EFI`
