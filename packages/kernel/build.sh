@@ -12,6 +12,10 @@ openssl-dev \
 elfutils-dev \
 python3
 
-make defconfig # you have to use defconfig. tinyconfig is missing entries so can't merge
+# you have to use defconfig
+# the config made by tinyconfig does not have all the fields
+# so you can't merge storage.config
+make defconfig
 
-./scripts/kconfig/merge_config.sh .config storage.config
+
+./scripts/kconfig/merge_config.sh .config storage.config cmdline.config

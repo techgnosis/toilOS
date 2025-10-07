@@ -20,9 +20,13 @@ Inspiration
 * Oasis - https://github.com/oasislinux/oasis
 * EasyOS - https://easyos.org/about/how-and-why-easyos-is-different.html
 
+Themes
+* ZigOS - system has nothing but zig. have to write your own userland.
+
 TODO:
 * qemu image and boot. no boot loader, EFI only still.
 * kernel with embedded cmdline flags and ideally the intel microcode
+* slim down busybox
 
 
 ### Every step
