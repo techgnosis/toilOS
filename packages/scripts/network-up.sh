@@ -1,5 +1,5 @@
 #! /os/sh
-#
+
 set -euo pipefail
 
 ip address add 192.168.1.200/24 broadcast 192.168.1.255 dev enp0s31f6

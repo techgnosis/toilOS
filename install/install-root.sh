@@ -13,6 +13,12 @@ cp ../busybox/source/busybox root/os/busybox
 cp ../micro/source/micro root/os/micro
 cp ../files/init.sh root/os/init.sh
 
+# busybox symlinks
+ln -s root/os/busybox root/os/sh
+ln -s root/os/busybox root/os/mount
+ln -s root/os/busybox root/os/getty
+ln -s root/os/busybox root/os/init
+
 mkdir root/etc
 cp ../files/inittab root/etc/inittab
 cp ../files/passwd root/etc/passwd
