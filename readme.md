@@ -22,7 +22,7 @@ Inspiration
 
 TODO:
 * busybox symlinks
-* install Silverblue so I can use ostree eventually
+* qemu image and boot. no boot loader, EFI only still.
 
 
 ### Boot
@@ -55,7 +55,7 @@ TODO:
 * with all the needed disk drivers. I don’t want an initramfs.
 * Need to figure out what drivers I need
 * Needs EFI Stub
-* make tinyconfig
+* `ukify build --linux=/mnt/disk/boot/vmlinuz --initrd=/mnt/disk/boot/initrd.img --cmdline="root=/dev/vda1 ro console=ttyS0" --output=/mnt/esp/EFI/BOOT/BOOTX64.EFI`
 
 ### Init
 * busybox init
