@@ -115,12 +115,3 @@ This OS has no purpose. These are some ideas.
 * Needs to be musl friendly
 * must use software rendering
 * dwl or velox (velox has been proven by Oasis)
-
-
-### Install
-Needs to happen from a running Linux host. Installation requires the `umoci` CLI
-
-* fdisk the disk
-* mkfs.ext4 the partition
-* run install/build.sh
-* run install/efi.sh to setup boot manager
