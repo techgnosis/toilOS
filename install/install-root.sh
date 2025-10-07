@@ -4,20 +4,16 @@ set -euo pipefail
 
 losetup /dev/loop0 disk.raw
 
+rm -rf ./root
+mkdir root
 mount /dev/loop0p2 root
 
-if [ ! -d root/os ]; then
-    mkdir root/os
-fi
-
+mkdir root/os
 cp ../busybox/source/busybox root/os/busybox
 cp ../micro/source/micro root/os/micro
 cp ../files/init.sh root/os/init.sh
 
-if [ ! -d root/etc ]; then
-    mkdir root/etc
-fi
-
+mkdir root/etc
 cp ../files/inittab root/etc/inittab
 cp ../files/passwd root/etc/passwd
 cp ../files/group root/etc/group

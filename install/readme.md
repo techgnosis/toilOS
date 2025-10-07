@@ -1,4 +1,4 @@
-# Install
+# Image Prep
 
 The gist is that you are going to make a raw image on disk, then partition it, and format it
 
@@ -12,7 +12,7 @@ associate the loopback device with the raw image
 losetup /dev/loop0 disk.raw
 ```
 
-list the current associations
+list the current associations to show it worked
 ```
 losetup -l
 ```
@@ -36,3 +36,11 @@ detach the image from the loopback device after unmounting
 ```
 losetup -d /dev/loop0
 ```
+
+# Install
+
+There are two install scripts
+* install-esp.sh
+* install.root.sh
+
+They each mount a partition in the loopback device and copy files into it. They both assume the image is brand new and therefore empty.
