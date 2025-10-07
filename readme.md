@@ -103,15 +103,14 @@ This OS has no purpose. These are some ideas.
 * /etc/group
 * /etc/resolv.conf
 
-
-#### Browser
+### Browser
 * wpewebkit + minibrowser
 
-#### Terminal emulator
+### Terminal emulator
 * Can't be a modern GPU rendered one like kitty or alacritty
 * Must support software rendering
 
-#### Wayland
+### Wayland
 * Needs to be musl friendly
 * must use software rendering
 * dwl or velox (velox has been proven by Oasis)
