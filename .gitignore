@@ -1,3 +1,4 @@
 source
-tree
-tailos.raw
+esp
+root
+disk.raw
