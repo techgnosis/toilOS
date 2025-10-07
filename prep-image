@@ -1,8 +1,12 @@
+#! /usr/bin/env bash
+
+set -euo pipefail
+
 # block size doesn't matter much. 1M just maks it easy to calculate the size
-dd if=/dev/zero of=disk.img bs=1M count=8192
+dd if=/dev/zero of=disk.raw bs=1M count=8192
 
 # associate the loopback device with the raw image
-losetup /dev/loop0 disk.img
+losetup /dev/loop0 disk.raw
 
 # list the current associations
 losetup -l
@@ -16,14 +20,6 @@ losetup -P /dev/loop0 disk.img
 mkfs.vfat /dev/loop0p1
 mkfs.ext4 /dev/loop0p2
 
-mount /dev/loop0p1 boot
-mount /dev/loop0p2 os
-
-# magic path that EFI looks if the nvram has no entries in it
-cp vmlinuz boot/EFI/BOOT/BOOTX64.EFI
-
-umount os
-umount boot
 
 # detach the image from the loopback device after unmounting
 losetup -d /dev/loop0
