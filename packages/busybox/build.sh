@@ -7,10 +7,8 @@ gcc \
 make \
 linux-headers
 
-cp minimal.config source
 cd source
 make clean
-cp minimal.config .config
-make oldconfig # sets all missing options to No
+make defconfig
 
-make CC="gcc -static" LDFLAGS="-static"
+make CC="/usr/bin/x86_64-alpine-linux-musl-gcc -static" LDFLAGS="-static"
