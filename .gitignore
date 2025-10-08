@@ -2,5 +2,6 @@ source
 esp
 root
 disk.raw
+image.log
 
 .ash_history
