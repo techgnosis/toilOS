@@ -102,6 +102,7 @@ This OS has no purpose. These are some ideas.
 * /etc/passwd - must have to be able to login
 * /etc/group
 * /etc/resolv.conf
+* /etc/fstab - technically not required but if I use fstab then I don't need a custom init script so it works out in the end
 
 ### Browser
 * wpewebkit + minibrowser
