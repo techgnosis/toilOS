@@ -11,4 +11,4 @@ cd source
 make clean
 make defconfig
 
-make CC="/usr/bin/x86_64-alpine-linux-musl-gcc -static" LDFLAGS="-static"
+CC="musl-gcc -static" LDFLAGS="-static" make

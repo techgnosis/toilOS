@@ -15,4 +15,4 @@ libxkbcommon-static \
 pkgconf \
 wayland-protocols
 
-CC=musl-gcc LDFLAGS=-static make clean install
+CC="musl-gcc -static" LDFLAGS="-static" make
