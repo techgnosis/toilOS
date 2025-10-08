@@ -21,12 +21,17 @@ toilOS is defined by what is not included. You have to do absolutely everything 
 ## Inspiration
 * Oasis - https://github.com/oasislinux/oasis
 * EasyOS - https://easyos.org/about/how-and-why-easyos-is-different.html
+* GoKrazy - https://gokrazy.org/
+* Chimera Linux - https://chimera-linux.org/
+* Void Linux - https://voidlinux.org/
+* Linux From Scratch - https://www.linuxfromscratch.org/
 
 ## Themes
 This OS has no purpose. These are some ideas.
 * ZigOS - system has nothing but zig. have to write your own userland.
 * Zig+Golang - only syscalls.
 * docsOS - everything is absurdly documented. Read all about every executable and every line of every config file
+* Super transparent? Integrate Cilium?
 
 ### Every step
 * If the EFI boot manager has nothing in NVRAM for the device then it defaults to looking for `\EFI\BOOT\BOOTX64.EFI`

@@ -2,4 +2,5 @@
 * kernel with embedded cmdline flags and ideally the intel microcode
 
 v2
-* no multi-tool binaries. replace busybox with sbase or rust core utils plus a minimal shell and an init
+* no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init
+* init can be runit
