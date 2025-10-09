@@ -1,6 +1,8 @@
-* qemu image and boot. no boot loader, EFI only still.
+* figure out where the qemu EFI files live
+* build the rest of userspace and copy into image
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init
 * init can be busybox. i'll build it with one module only. the tiny inittab is too convenient
 * shell can be dash
+* https://github.com/ksdme/ut
