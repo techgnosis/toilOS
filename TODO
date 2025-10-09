@@ -1,6 +1,6 @@
 * qemu image and boot. no boot loader, EFI only still.
-* kernel with embedded cmdline flags and ideally the intel microcode
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init
-* init can be runit
+* init can be busybox. i'll build it with one module only. the tiny inittab is too convenient
+* shell can be dash

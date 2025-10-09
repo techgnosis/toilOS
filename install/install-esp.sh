@@ -1,15 +1,15 @@
 #! /usr/bin/env bash
 
-set -euo pipefail
+set -exuo pipefail
 
-losetup /dev/loop0 disk.raw
+losetup -P /dev/loop0 disk.raw
 
 rm -rf ./esp
 mkdir esp
 mount /dev/loop0p1 esp
 
 mkdir -p esp/efi/boot/
-cp ../packages/kernel/source/bootx64.efi esp/efi/boot/
+cp ../packages/kernel/source/arch/x86/boot/bzImage esp/efi/boot/bootx64.efi
 
 umount /dev/loop0p1
-losetup -d /dev/loop0 disk.raw
+losetup -d /dev/loop0
