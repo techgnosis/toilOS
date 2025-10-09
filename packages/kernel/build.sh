@@ -17,12 +17,8 @@ python3 \
 git \
 rsync
 
-cp storage.config source/
-cp cmdline.config source/
-
 cd source
 
 make mrproper
-make defconfig
-./scripts/kconfig/merge_config.sh .config storage.config cmdline.config
+cp ../config-6.17 .config
 make bzImage
