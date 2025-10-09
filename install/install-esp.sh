@@ -9,4 +9,7 @@ mkdir esp
 mount /dev/loop0p1 esp
 
 mkdir -p esp/efi/boot/
-cp kernel/source/bootx64.efi esp/efi/boot/
+cp ../packages/kernel/source/bootx64.efi esp/efi/boot/
+
+umount /dev/loop0p1
+losetup -d /dev/loop0 disk.raw

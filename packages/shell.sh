@@ -3,7 +3,6 @@
 set -euo pipefail
 
 podman run \
---security-opt label=disable \
 -v $(pwd):/source \
 -w /source \
 -it \
