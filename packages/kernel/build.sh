@@ -1,26 +1,28 @@
 #! /bin/sh
 
-cd source
+export DEBIAN_FRONTEND=noninteractive
+export TZ=UTC
 
-apk update
+apt-get update
 
-apk add \
-build-base \
+apt-get install -y \
+build-essential \
 bc \
 flex \
 bison \
 perl \
-openssl-dev \
-elfutils-dev \
-python3
+libssl-dev \
+libelf-dev \
+python3 \
+git \
+rsync
 
 cp storage.config source/
 cp cmdline.config source/
 
-# you have to use defconfig
-# the config made by tinyconfig does not have all the fields
-# so you can't merge storage.config
+cd source
+
+make mrproper
 make defconfig
-
-
 ./scripts/kconfig/merge_config.sh .config storage.config cmdline.config
+make bzImage
