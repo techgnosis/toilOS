@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
 
-set -euo pipefail
+set -exuo pipefail
 
-losetup /dev/loop0 disk.raw
+losetup -P /dev/loop0 disk.raw
 
-rm -rf ./root
-mkdir root
 mount /dev/loop0p2 root
+rm -rf root/os
+rm -rf root/etc
 
 mkdir root/os
 cp ../packages/busybox/source/busybox root/os/
@@ -14,10 +14,10 @@ cp ../packages/micro/source/micro root/os/
 cp ../packages/scripts/network-up.sh root/os/
 
 # busybox symlinks
-ln -s root/os/busybox root/os/sh
-ln -s root/os/busybox root/os/mount
-ln -s root/os/busybox root/os/getty
-ln -s root/os/busybox root/os/init
+ln -s busybox root/os/sh
+ln -s busybox root/os/mount
+ln -s busybox root/os/getty
+ln -s busybox root/os/init
 
 mkdir root/etc
 cp ../packages/etc/inittab root/etc/
@@ -28,4 +28,4 @@ cp ../packages/etc/resolv.conf root/etc/
 
 umount /dev/loop0p2
 
-losetup -d /dev/loop0 disk.raw
+losetup -d /dev/loop0
