@@ -1,5 +1,10 @@
 #! /bin/sh
 
+apt-get update
+
+apt-get install -y \
+build-essential
+
 cp storage.config source/
 cp cmdline.config source/
 
@@ -7,3 +12,6 @@ cd source
 
 make defconfig
 ./scripts/kconfig/merge_config.sh .config storage.config cmdline.config
+cp .config ../config-6.17
+rm storage.config
+rm cmdline.config
