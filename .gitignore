@@ -3,5 +3,6 @@ esp
 root
 disk.raw
 image.log
+OVMF_VARS.fd
 
 .ash_history
