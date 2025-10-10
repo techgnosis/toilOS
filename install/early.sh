@@ -16,7 +16,7 @@ qemu-system-x86_64 \
 -device ahci,id=ahci0 \
 -device ide-hd,drive=disk0,bus=ahci0.0 \
 -serial stdio \
--append "init=/os/init console=ttyS0,115200 earlycon=uart8250,io,0x3f8 debug loglevel=8" \
+-append "init=/os/sh console=ttyS0,115200 earlycon=uart8250,io,0x3f8 debug loglevel=8" \
 -kernel BOOTX64.EFI
 
 

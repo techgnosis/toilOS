@@ -33,7 +33,9 @@ ln -s busybox root/os/chown
 ln -s busybox root/os/cp
 ln -s busybox root/os/mv
 ln -s busybox root/os/rm
-ln -s busybox root/os/dmesg
+ln -s busybox root/os/ls
+ln -s busybox root/os/ip
+
 
 mkdir root/etc
 cp ../packages/etc/inittab root/etc/
@@ -41,6 +43,7 @@ cp ../packages/etc/fstab root/etc/
 cp ../packages/etc/passwd root/etc/
 cp ../packages/etc/group root/etc/
 cp ../packages/etc/resolv.conf root/etc/
+cp ../packages/etc/profile root/etc/
 
 umount /dev/loop0p2
 
