@@ -4,5 +4,8 @@ root
 disk.raw
 image.log
 OVMF_VARS.fd
+bootx64.efi
+bzImage
+BOOTX64.EFI
 
 .ash_history
