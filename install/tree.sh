@@ -1,11 +1,11 @@
 #! /usr/bin/env bash
 
-set -exuo pipefail
-
 if [ $EUID -ne 0 ]; then
     echo "This script must be run as root"
     exit 1
 fi
+
+set -exuo pipefail
 
 losetup -P /dev/loop0 disk.raw
 mount /dev/loop0p1 esp
