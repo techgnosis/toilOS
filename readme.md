@@ -120,3 +120,7 @@ This OS has no purpose. These are some ideas.
 * Needs to be musl friendly
 * must use software rendering
 * dwl or velox (velox has been proven by Oasis)
+
+
+### UEFI
+Use https://github.com/pbatard/UEFI-Shell for editing OVMF vars files

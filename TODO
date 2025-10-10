@@ -1,3 +1,5 @@
+Current status - My qemu settings are fine. I can boot shellx64.efi but not my kernel. Or perhaps my kernel is trying to boot I can't tell?
+
 * figure out where the qemu EFI files live
 * build the rest of userspace and copy into image
 

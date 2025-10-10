@@ -9,6 +9,9 @@ set -exuo pipefail
 
 losetup -P /dev/loop0 disk.raw
 
+if [ ! -d root ]; then
+    mkdir root
+fi
 mount /dev/loop0p2 root
 rm -rf root/os
 rm -rf root/etc
@@ -42,3 +45,5 @@ cp ../packages/etc/resolv.conf root/etc/
 umount /dev/loop0p2
 
 losetup -d /dev/loop0
+
+rmdir root
