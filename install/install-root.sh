@@ -18,6 +18,14 @@ ln -s busybox root/os/sh
 ln -s busybox root/os/mount
 ln -s busybox root/os/getty
 ln -s busybox root/os/init
+ln -s busybox root/os/login
+ln -s busybox root/os/cat
+ln -s busybox root/os/chmod
+ln -s busybox root/os/chown
+ln -s busybox root/os/cp
+ln -s busybox root/os/mv
+ln -s busybox root/os/rm
+ln -s busybox root/os/dmesg
 
 mkdir root/etc
 cp ../packages/etc/inittab root/etc/
