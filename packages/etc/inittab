@@ -1,2 +1,2 @@
-::sysinit:mount -a
+::sysinit:/os/mount -a
 tty1::respawn:/os/getty 38400 tty1
