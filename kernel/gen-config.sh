@@ -3,7 +3,9 @@
 apt-get update
 
 apt-get install -y \
-build-essential
+build-essential \
+flex \
+bison
 
 cp storage.config source/
 
