@@ -21,7 +21,6 @@ fi
 mkdir -p esp/EFI/BOOT
 
 cp BOOTX64.EFI esp/EFI/BOOT/BOOTX64.EFI
-#cp shellx64.efi esp/EFI/BOOT/BOOTX64.EFI
 
 
 umount /dev/loop0p1
