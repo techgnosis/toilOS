@@ -1,0 +1,1 @@
+root=/dev/sda2 init=/os/init console=ttyS0,115200 earlycon=uart8250,io,0x3f8 debug loglevel=8
