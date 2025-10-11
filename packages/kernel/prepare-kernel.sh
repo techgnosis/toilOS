@@ -2,7 +2,7 @@
 
 set -exuo pipefail
 
-cp ../packages/kernel/source/arch/x86/boot/bzImage .
+cp source/arch/x86/boot/bzImage .
 
 objcopy \
 --add-section .cmdline=cmdline.txt \
