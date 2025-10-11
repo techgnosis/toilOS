@@ -7,24 +7,23 @@ fi
 
 set -exuo pipefail
 
-rm disk.raw
+if [ -f disk.raw ]; then
+  rm disk.raw
+fi
 
 dd if=/dev/zero of=disk.raw bs=1M count=8192
 
 losetup /dev/loop0 disk.raw
 
-sfdisk /dev/loop0 << EOF
+sfdisk --no-tell-kernel /dev/loop0 << EOF
 label: gpt
 start=2048, size=2097152, type=C12A7328-F81F-11D2-BA4B-00A0C93EC93B, name="EFI System Partition"
 start=2099200, type=0FC63DAF-8483-4772-8E79-3D69D8477DE4, name="Linux Root"
 EOF
 
 losetup -d /dev/loop0
-modprobe -r loop
-modprobe loop
+sleep 2 # this is important. without the sleep the losetup -P fails with resource busy
 losetup -P /dev/loop0 disk.raw
-echo "waiting for partition device nodes to populate"
-sleep 10
 
 
 
