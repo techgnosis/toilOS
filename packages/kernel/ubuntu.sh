@@ -5,9 +5,8 @@ set -euo pipefail
 echo "KERNEL SHELL"
 
 podman run \
---security-opt label=disable \
--v $(pwd):/source \
--w /source \
+-v $(pwd):/work \
+-w /work \
 -it \
 --rm \
 ubuntu:24.04 \
