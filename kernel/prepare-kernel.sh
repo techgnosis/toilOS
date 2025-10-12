@@ -25,4 +25,5 @@ BOOTX64.EFI
 rm ./bzImage
 
 #--add-section .cmdline=cmdline.txt \
-#--change-section-vma .cmdline=0x30000 \
+#--set-section-flags .cmdline=contents,alloc,load,readonly,data \
+#--change-section-vma .cmdline=0x2000000 \
