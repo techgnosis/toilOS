@@ -2,7 +2,6 @@ Current work:
 
 
 TODO
-* figure out objcopy cmdline
 * get network working. ip works but eth0 isnt a real device
 * minimize custom.config. its pretty random atm
 
