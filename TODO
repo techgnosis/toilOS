@@ -2,7 +2,6 @@ Current work:
 
 
 TODO
-* figure out framebuffers so i can use tty1
 * why is micro too small
 * figure out objcopy cmdline
 * get network working. ip works but eth0 isnt a real device
