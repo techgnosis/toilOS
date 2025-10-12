@@ -3,7 +3,7 @@ Current work:
 
 TODO
 * figure out framebuffers so i can use tty1
-* rw root filesystem
+* turn off the stack overflow debug messages
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init
