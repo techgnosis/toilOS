@@ -53,5 +53,10 @@ cp ../packages/etc/group root/etc/
 cp ../packages/etc/resolv.conf root/etc/
 cp ../packages/etc/profile root/etc/
 
+mkdir root/sys
+mkdir root/proc
+mkdir root/run
+mkdir root/dev
+
 umount /dev/loop0p2
 losetup -d /dev/loop0
