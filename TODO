@@ -1,10 +1,12 @@
 Current status:
-* My qemu settings are fine
-* I can boot shellx64.efi but not my kernel
-* Or perhaps my kernel is trying to boot. I can't tell
+* ran into a wall running getty. doing some reorg for now
 
-* figure out where the qemu EFI files live
-* build the rest of userspace and copy into image
+TODO
+* build the image in a container. need --privileged
+* change kernel config. need less storage drivers since im booting in qemu
+
+
+
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init

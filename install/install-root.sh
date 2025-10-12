@@ -5,6 +5,13 @@ if [ $EUID -ne 0 ]; then
     exit 1
 fi
 
+function cleanup {
+    umount /dev/loop0p2
+    losetup -d /dev/loop0
+}
+
+trap cleanup EXIT
+
 set -exuo pipefail
 
 losetup -P /dev/loop0 disk.raw
@@ -46,7 +53,4 @@ cp ../packages/etc/resolv.conf root/etc/
 cp ../packages/etc/profile root/etc/
 
 umount /dev/loop0p2
-
 losetup -d /dev/loop0
-
-rmdir root

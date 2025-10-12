@@ -6,7 +6,7 @@ if [ $EUID -ne 0 ]; then
 fi
 
 function cleanup {
-    umount /dev/loop0
+    umount /dev/loop0p1
     losetup -d /dev/loop0
 }
 
