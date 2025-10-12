@@ -43,6 +43,12 @@ ln -s busybox root/os/mv
 ln -s busybox root/os/rm
 ln -s busybox root/os/ls
 ln -s busybox root/os/ip
+ln -s busybox root/os/which
+ln -s busybox root/os/env
+ln -s busybox root/os/mkdir
+ln -s busybox root/os/rmdir
+ln -s busybox root/os/touch
+ln -s busybox root/os/ps
 
 
 mkdir root/etc

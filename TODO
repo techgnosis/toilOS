@@ -1,11 +1,9 @@
 Current work:
-things were working great when i was setting the console to ttyS0.
-i switched to tty1 after setting some framebuffer stuff to y
-tty1 still does not work. i suspect its because the CONFIG_FB_EFI option
-was not in defconfig. i wonder what the correct option is.
+
 
 TODO
-* figure out what went wrong with my kernel
+* figure out framebuffers so i can use tty1
+* rw root filesystem
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init
