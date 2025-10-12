@@ -1,15 +1,15 @@
-Current status:
-* ran into a wall running getty. doing some reorg for now
+Current work:
+things were working great when i was setting the console to ttyS0.
+i switched to tty1 after setting some framebuffer stuff to y
+tty1 still does not work. i suspect its because the CONFIG_FB_EFI option
+was not in defconfig. i wonder what the correct option is.
 
 TODO
-* build the image in a container. need --privileged
-* change kernel config. need less storage drivers since im booting in qemu
-
-
-
+* figure out what went wrong with my kernel
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init
 * init can be busybox. i'll build it with one module only. the tiny inittab is too convenient
 * shell can be dash
 * https://github.com/ksdme/ut
+* change kernel config. need less storage drivers since im booting in qemu
