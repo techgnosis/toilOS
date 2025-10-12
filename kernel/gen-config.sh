@@ -5,7 +5,9 @@ apt-get update
 apt-get install -y \
 build-essential \
 flex \
-bison
+bison \
+pkg-config \
+libncurses-dev
 
 cp custom.config source/
 
