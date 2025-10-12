@@ -57,6 +57,7 @@ mkdir root/sys
 mkdir root/proc
 mkdir root/run
 mkdir root/dev
+mkdir root/root
 
 umount /dev/loop0p2
 losetup -d /dev/loop0
