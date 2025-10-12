@@ -1,2 +1,2 @@
 ::sysinit:/os/mount -a
-::respawn:/os/getty -l /os/login 115200 ttyS0
+::respawn:/os/getty -l /os/login 115200 tty1

@@ -15,7 +15,9 @@ libssl-dev \
 libelf-dev \
 python3 \
 git \
-rsync
+rsync \
+pkg-config \
+libncurses-dev
 
 cd source
 
