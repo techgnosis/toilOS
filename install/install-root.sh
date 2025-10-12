@@ -73,5 +73,9 @@ if [ ! -d root/root ]; then
   mkdir root/root
 fi
 
+if [ ! -d root/var ]; then
+  mkdir root/var
+fi
+
 umount /dev/loop0p2
 losetup -d /dev/loop0
