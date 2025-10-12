@@ -21,4 +21,4 @@ cd source
 
 make mrproper
 cp ../config-6.17 .config
-make bzImage
+make -j $(nproc) bzImage
