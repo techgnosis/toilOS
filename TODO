@@ -9,7 +9,5 @@ TODO
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init. init can be busybox. i'll build it with one module only. the tiny inittab is too convenient
-* shell can be dash
-* https://github.com/ksdme/ut
-* change kernel config. need less storage drivers since im booting in qemu
-* nushell maybe. they already provide static musl binaries
+* shell can be nushell maybe. they already provide static musl binaries
+* slim kernel storage options
