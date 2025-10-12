@@ -5,6 +5,13 @@ if [ $EUID -ne 0 ]; then
     exit 1
 fi
 
+function cleanup {
+    losetup -d /dev/loop0 &> /dev/null
+    umount /dev/loop0p1 &> /dev/null
+}
+
+trap cleanup EXIT
+
 set -exuo pipefail
 
 losetup -P /dev/loop0 disk.raw
