@@ -7,8 +7,8 @@ fi
 
 function cleanup {
     set +e
-    losetup -d /dev/loop0 &> /dev/null
-    umount /dev/loop0p1 &> /dev/null
+    losetup -d /dev/loop0
+    umount /dev/loop0p1
 }
 
 trap cleanup EXIT

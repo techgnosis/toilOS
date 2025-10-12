@@ -2,10 +2,6 @@
 
 set -exuo pipefail
 
-if [ -f qemu_debug.log ]; then
-  rm qemu_debug.log
-fi
-
 qemu-system-x86_64 \
 -enable-kvm \
 -m 2G \
