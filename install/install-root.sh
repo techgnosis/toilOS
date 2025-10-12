@@ -38,6 +38,7 @@ ln -s busybox root/os/login
 ln -s busybox root/os/cat
 ln -s busybox root/os/chmod
 ln -s busybox root/os/chown
+ln -s busybox root/os/clear
 ln -s busybox root/os/cp
 ln -s busybox root/os/mv
 ln -s busybox root/os/rm
