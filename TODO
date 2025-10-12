@@ -3,11 +3,10 @@ Current work:
 
 TODO
 * figure out framebuffers so i can use tty1
-* look into turning off CONFIG_EXPERT
+* why is micro too small
 
 v2
-* no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init
-* init can be busybox. i'll build it with one module only. the tiny inittab is too convenient
+* no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init. init can be busybox. i'll build it with one module only. the tiny inittab is too convenient
 * shell can be dash
 * https://github.com/ksdme/ut
 * change kernel config. need less storage drivers since im booting in qemu
