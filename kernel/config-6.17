@@ -484,7 +484,7 @@ CONFIG_HOTPLUG_CPU=y
 CONFIG_LEGACY_VSYSCALL_XONLY=y
 # CONFIG_LEGACY_VSYSCALL_NONE is not set
 CONFIG_CMDLINE_BOOL=y
-CONFIG_CMDLINE="root=/dev/sda2 rw init=/os/init console=ttyS0,115200 loglevel=5"
+CONFIG_CMDLINE="root=/dev/sda2 rw init=/os/init console=ttyS0,115200 loglevel=6"
 # CONFIG_CMDLINE_OVERRIDE is not set
 CONFIG_MODIFY_LDT_SYSCALL=y
 # CONFIG_STRICT_SIGALTSTACK_SIZE is not set

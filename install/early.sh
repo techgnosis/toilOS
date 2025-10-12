@@ -14,5 +14,4 @@ qemu-system-x86_64 \
 -drive file=disk.raw,format=raw,id=disk0,if=none \
 -device ahci,id=ahci0 \
 -device ide-hd,drive=disk0,bus=ahci0.0 \
--append "init=/os/sh console=ttyS0,115200 earlycon=uart8250,io,0x3f8 debug loglevel=8" \
 -kernel ../kernel/BOOTX64.EFI

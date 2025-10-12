@@ -22,5 +22,7 @@ objcopy \
 -S ./bzImage \
 BOOTX64.EFI
 
+rm ./bzImage
+
 #--add-section .cmdline=cmdline.txt \
 #--change-section-vma .cmdline=0x30000 \
