@@ -2,7 +2,6 @@ Current work:
 
 
 TODO
-* why is micro too small
 * figure out objcopy cmdline
 * get network working. ip works but eth0 isnt a real device
 
