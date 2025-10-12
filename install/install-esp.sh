@@ -5,6 +5,13 @@ if [ $EUID -ne 0 ]; then
     exit 1
 fi
 
+function cleanup {
+    umount /dev/loop0
+    losetup -d /dev/loop0
+}
+
+trap cleanup EXIT
+
 set -exuo pipefail
 
 losetup -P /dev/loop0 disk.raw
@@ -20,9 +27,8 @@ fi
 
 mkdir -p esp/EFI/BOOT
 
-cp BOOTX64.EFI esp/EFI/BOOT/BOOTX64.EFI
+cp ../kernel/BOOTX64.EFI esp/EFI/BOOT/BOOTX64.EFI
 
 
 umount /dev/loop0p1
 losetup -d /dev/loop0
-rmdir esp
