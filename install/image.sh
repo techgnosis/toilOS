@@ -12,6 +12,7 @@ if [ -f disk.raw ]; then
 fi
 
 dd if=/dev/zero of=disk.raw bs=1M count=8192
+chmod 666 disk.raw
 
 losetup /dev/loop0 disk.raw
 
