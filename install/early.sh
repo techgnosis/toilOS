@@ -10,4 +10,4 @@ qemu-system-x86_64 \
 -drive file=disk.raw,format=raw,id=disk0,if=none \
 -device ahci,id=ahci0 \
 -device ide-hd,drive=disk0,bus=ahci0.0 \
--kernel ../kernel/BOOTX64.EFI
+-kernel shellx64.efi
