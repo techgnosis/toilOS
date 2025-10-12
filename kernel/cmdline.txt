@@ -1,1 +1,1 @@
-root=/dev/sda2 rw init=/os/init console=ttyS0,115200 loglevel=8
+root=/dev/sda2 rw init=/os/init console=tty1,115200 loglevel=4
