@@ -4,8 +4,8 @@ Current work:
 TODO
 * get network working. ip works but eth0 isnt a real device
 * minimize custom.config. its pretty random atm
+* the cmdline section via objcopy is only for BIOS. Need a better way to manage cmdline than recompiling kernel. maybe shellx64.efi and then boot manually
 
 v2
 * no multi-tool binaries. replace busybox with sbase or rust core utils plus shell + init. init can be busybox. i'll build it with one module only. the tiny inittab is too convenient
 * shell can be nushell maybe. they already provide static musl binaries
-* the cmdline section via objcopy is only for BIOS. Need a better way to manage cmdline than recompiling kernel. maybe shellx64.efi and then boot manually
