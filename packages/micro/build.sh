@@ -5,11 +5,9 @@ apk update
 apk add \
 go \
 make \
-file
+file \
+git
 
 cd source
 
 CGO_ENABLED=0 make build
-
-ldd micro
-file micro
