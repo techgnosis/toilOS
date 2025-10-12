@@ -23,6 +23,10 @@ fi
 mount /dev/loop0p2 root
 rm -rf root/os
 rm -rf root/etc
+rm -rf root/sys
+rm -rf root/proc
+rm -rf root/run
+rm -rf root/dev
 
 mkdir root/os
 cp ../packages/busybox/source/busybox root/os/
@@ -64,7 +68,10 @@ mkdir root/sys
 mkdir root/proc
 mkdir root/run
 mkdir root/dev
-mkdir root/root
+
+if [ ! -d root/root ]; then
+  mkdir root/root
+fi
 
 umount /dev/loop0p2
 losetup -d /dev/loop0
