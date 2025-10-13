@@ -2,6 +2,10 @@
 
 hard to use, easy to understand
 
+
+* Single user. It's just root and there are not any tools to suggest there is any other way
+* Nothing automated
+
 ## Motivation
 * understand every file on disk
 * understand every running process
@@ -34,12 +38,12 @@ This OS has no purpose. These are some ideas.
 * Super transparent? Integrate Cilium?
 
 ### Every step
-* If the EFI boot manager has nothing in NVRAM for the device then it defaults to looking for `\EFI\BOOT\BOOTX64.EFI`
+* If the EFI boot manager has nothing in NVRAM for the ESP then it defaults to looking for `\EFI\BOOT\BOOTX64.EFI`
 * The kernel is sitting in the ESP at `\EFI\BOOT\` and it is named `BOOTX64.EFI`
-* The kernel is an EFI application and so it is launched directly from EFI without a boot loader
+* The kernel is an EFI Application and so it is launched directly from EFI without a boot loader
 * The kernel has storage drivers compiled in so we don't need an initramfs
-* Absent an initramfs, the kernel will automatically mount a devtmpfs
-* We told the kernel what partition has the root and where the init process is so it mounts the root and runs init
+* Absent an initramfs, the kernel will automatically mount a devtmpfs at /dev
+* The kernel has an embedded CMDLINE that has the root and where the init process is so it mounts the root and runs init
 * init can technically be anything executable but usually a purpose-built init process responds to signals and does some handy things. init is actually `busybox init` so that we can use inittab. I want inittab so that it can "respawn" a getty if I logout. If I launch a getty manually it will end when I logout. I'm tempted to let that happen but there's no way to fix it if you logout. You would just have to restart. That seems overly toil-ish even for me. Or does it...
 
 
@@ -66,7 +70,7 @@ This OS has no purpose. These are some ideas.
 * Need to figure out what drivers I need
 * Needs EFI Stub
 * Must embed the CMDLINE into the kernel. Can't have any VM config required.
-* `ukify build --linux=/mnt/disk/boot/vmlinuz --initrd=/mnt/disk/boot/initrd.img --cmdline="root=/dev/vda1 ro console=ttyS0" --output=/mnt/esp/EFI/BOOT/BOOTX64.EFI`
+
 
 ### Init
 * busybox init
@@ -82,14 +86,6 @@ This OS has no purpose. These are some ideas.
 
 ### Filesystems
 * busybox mount
-
-### Devices
-* busybox mdev
-* Not udevd
-* /dev/console
-* /dev/tty1
-* /dev/null
-* /dev/zero
 
 ### Containers
 * youki (instead of runc)
@@ -121,6 +117,15 @@ This OS has no purpose. These are some ideas.
 * must use software rendering
 * dwl or velox (velox has been proven by Oasis)
 
-
 ### UEFI
-Use https://github.com/pbatard/UEFI-Shell for editing OVMF vars files
+OVMF on QEMU, configured with efibootmgr
+
+
+### Boot loader
+All machines need some software that you can tell where to find your kernel and how to launch it. UEFI includes software called the UEFI Boot Manager.
+
+The boot manager can only launch EFI Applications. These are files with the same format as Windows executables (PE files) but they are compiled against EFI backends like GNU-EFI and EDK2 instead of Windows. The Linux kernel bzImage is not a PE file by default, however you can enable a feature called the EFI Stub. The EFI Stub is a tiny PE that is attached to the kernel that boots directly from the boot manager and then launches the kernel.
+
+The combination of the boot manager and the EFI Stub means that you don't need GRUB or systemd-boot. You can configure the boot manager directly and cut out the middle man.
+
+You can modify the boot manager using tools like efibootmgr. Modifying the boot manger means adding or removing entries from a list that displays when you turn on your machine. Those entries include a display name and a path to a kernel. The kernels must reside on an EFI System Parition (ESP), which is a partition that is labelled as type EFI and formatted as FAT32.
