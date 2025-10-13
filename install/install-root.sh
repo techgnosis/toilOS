@@ -31,6 +31,7 @@ rm -rf root/dev
 mkdir root/os
 cp ../packages/busybox/source/busybox root/os/
 cp ../packages/micro/source/micro root/os/
+#cp ../packages/nushell/source/target/x86_64-unknown-linux-musl/release/nu root/os/
 cp ../packages/scripts/network-up.sh root/os/
 
 # busybox symlinks

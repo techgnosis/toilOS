@@ -29,6 +29,7 @@ toilOS is defined by what is not included. You have to do absolutely everything 
 * Chimera Linux - https://chimera-linux.org/
 * Void Linux - https://voidlinux.org/
 * Linux From Scratch - https://www.linuxfromscratch.org/
+* Alpine Linux - https://www.alpinelinux.org/
 
 ## Themes
 This OS has no purpose. These are some ideas.
@@ -43,8 +44,13 @@ This OS has no purpose. These are some ideas.
 * The kernel is an EFI Application and so it is launched directly from EFI without a boot loader
 * The kernel has storage drivers compiled in so we don't need an initramfs
 * Absent an initramfs, the kernel will automatically mount a devtmpfs at /dev
-* The kernel has an embedded CMDLINE that has the root and where the init process is so it mounts the root and runs init
-* init can technically be anything executable but usually a purpose-built init process responds to signals and does some handy things. init is actually `busybox init` so that we can use inittab. I want inittab so that it can "respawn" a getty if I logout. If I launch a getty manually it will end when I logout. I'm tempted to let that happen but there's no way to fix it if you logout. You would just have to restart. That seems overly toil-ish even for me. Or does it...
+* The kernel uses console=tty1 for I/O. tty1 is a VGA virtual terminal
+* The kernel mounts /dev/sda2 at / as rw
+* The kernel runs /os/init and passes it tty1
+* init runs getty on tty1
+* getty configures tty1 then calls login and then passes tty1
+* login displays the prompts, collects the credentials, and compares against /etc/passwd and /etc/group then passes tty1 to sh
+* sh runs the shell
 
 
 ### Repo structure
@@ -87,10 +93,6 @@ This OS has no purpose. These are some ideas.
 ### Filesystems
 * busybox mount
 
-### Containers
-* youki (instead of runc)
-    * rust
-    * built static already
 
 ### Editor
 * micro
