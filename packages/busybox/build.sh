@@ -9,11 +9,8 @@ gcc \
 make \
 linux-headers
 
-cp custom.config source/
 cd source
 make clean
-male allnoconfig
-
-
+cp ../config-1.36.1 .config
 
 CC="musl-gcc -static" LDFLAGS="-static" make
