@@ -42,6 +42,7 @@ ln -s busybox root/os/init
 ln -s busybox root/os/login
 ln -s busybox root/os/ip
 ln -s busybox root/os/ps
+ln -s busybox root/os/ls
 
 # sbase
 cp ../packages/sbase/source/cat root/os/
@@ -50,7 +51,6 @@ cp ../packages/sbase/source/chown root/os/
 cp ../packages/sbase/source/cp root/os/
 cp ../packages/sbase/source/mv root/os/
 cp ../packages/sbase/source/rm root/os/
-cp ../packages/sbase/source/ls root/os/
 cp ../packages/sbase/source/which root/os/
 cp ../packages/sbase/source/env root/os/
 cp ../packages/sbase/source/mkdir root/os/
