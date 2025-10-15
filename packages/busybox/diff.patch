@@ -1,0 +1,40 @@
+--- source/.config	2025-10-14 23:05:30.132002610 -0700
++++ config-1.36.1	2025-10-14 23:05:00.189591930 -0700
+@@ -4 +4 @@
+-# Wed Oct 15 06:05:30 2025
++# Wed Oct 15 05:14:53 2025
+@@ -26 +26 @@
+-# CONFIG_BUSYBOX is not set
++CONFIG_BUSYBOX=y
+@@ -495 +495 @@
+-# CONFIG_INIT is not set
++CONFIG_INIT=y
+@@ -497 +497 @@
+-# CONFIG_FEATURE_USE_INITTAB is not set
++CONFIG_FEATURE_USE_INITTAB=y
+@@ -531,2 +531,2 @@
+-# CONFIG_GETTY is not set
+-# CONFIG_LOGIN is not set
++CONFIG_GETTY=y
++CONFIG_LOGIN=y
+@@ -656 +656 @@
+-# CONFIG_MOUNT is not set
++CONFIG_MOUNT=y
+@@ -664 +664 @@
+-# CONFIG_FEATURE_MOUNT_FSTAB is not set
++CONFIG_FEATURE_MOUNT_FSTAB=y
+@@ -903,4 +903,4 @@
+-# CONFIG_IP is not set
+-# CONFIG_IPADDR is not set
+-# CONFIG_IPLINK is not set
+-# CONFIG_IPROUTE is not set
++CONFIG_IP=y
++CONFIG_IPADDR=y
++CONFIG_IPLINK=y
++CONFIG_IPROUTE=y
+@@ -1049 +1049 @@
+-# CONFIG_PS is not set
++CONFIG_PS=y
+@@ -1111 +1111 @@
+-# CONFIG_ASH is not set
++CONFIG_ASH=y
