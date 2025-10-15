@@ -17,10 +17,11 @@ set -exuo pipefail
 
 losetup -P /dev/loop0 disk.raw
 
-if [ ! -d root ]; then
-    mkdir root
-fi
+mkdir -p root
 mount /dev/loop0p2 root
+
+# delete as much as possible
+# only /root and /var are kept
 rm -rf root/os
 rm -rf root/etc
 rm -rf root/sys
@@ -31,7 +32,6 @@ rm -rf root/dev
 mkdir root/os
 cp ../packages/busybox/source/busybox root/os/
 cp ../packages/micro/source/micro root/os/
-#cp ../packages/nushell/source/target/x86_64-unknown-linux-musl/release/nu root/os/
 cp ../packages/scripts/network-up.sh root/os/
 
 # busybox symlinks
@@ -40,23 +40,24 @@ ln -s busybox root/os/mount
 ln -s busybox root/os/getty
 ln -s busybox root/os/init
 ln -s busybox root/os/login
-ln -s busybox root/os/cat
-ln -s busybox root/os/chmod
-ln -s busybox root/os/chown
-ln -s busybox root/os/clear
-ln -s busybox root/os/cp
-ln -s busybox root/os/mv
-ln -s busybox root/os/rm
-ln -s busybox root/os/ls
 ln -s busybox root/os/ip
-ln -s busybox root/os/which
-ln -s busybox root/os/env
-ln -s busybox root/os/mkdir
-ln -s busybox root/os/rmdir
-ln -s busybox root/os/touch
 ln -s busybox root/os/ps
 
+# sbase
+cp ../packages/sbase/source/cat root/os/
+cp ../packages/sbase/source/chmod root/os/
+cp ../packages/sbase/source/chown root/os/
+cp ../packages/sbase/source/cp root/os/
+cp ../packages/sbase/source/mv root/os/
+cp ../packages/sbase/source/rm root/os/
+cp ../packages/sbase/source/ls root/os/
+cp ../packages/sbase/source/which root/os/
+cp ../packages/sbase/source/env root/os/
+cp ../packages/sbase/source/mkdir root/os/
+cp ../packages/sbase/source/rmdir root/os/
+cp ../packages/sbase/source/touch root/os/
 
+# etc
 mkdir root/etc
 cp ../packages/etc/inittab root/etc/
 cp ../packages/etc/fstab root/etc/
@@ -65,11 +66,14 @@ cp ../packages/etc/group root/etc/
 cp ../packages/etc/resolv.conf root/etc/
 cp ../packages/etc/profile root/etc/
 
+# system directories
 mkdir root/sys
 mkdir root/proc
 mkdir root/run
 mkdir root/dev
 
+# we don't delete them in the beginning since they are state
+# but they need to be created if they are not there
 if [ ! -d root/root ]; then
   mkdir root/root
 fi
