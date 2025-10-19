@@ -9,3 +9,5 @@ qemu-system-x86_64 \
 -drive if=pflash,format=raw,file=./OVMF_VARS.fd \
 -drive file=disk.raw,format=raw,id=disk0,if=none \
 -device virtio-blk-pci,drive=disk0 # <--- PARAVIRTUALIZED DISK DEVICE
+-vga none \
+-device virtio-gpu-pci # <--- NEW: Adds the paravirtual GPU
