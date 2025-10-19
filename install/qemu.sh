@@ -10,4 +10,6 @@ qemu-system-x86_64 \
 -drive file=disk.raw,format=raw,id=disk0,if=none \
 -device virtio-blk-pci,drive=disk0 # <--- PARAVIRTUALIZED DISK DEVICE
 -vga none \
--device virtio-gpu-pci # <--- NEW: Adds the paravirtual GPU
+-device virtio-gpu-pci # <--- NEW: Adds the paravirtual GPU \
+-netdev user,id=net0 \
+-device virtio-net-pci,netdev=net0 # <--- NEW PARAVIRTUALIZED NIC DEVICE
