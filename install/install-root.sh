@@ -56,6 +56,8 @@ cp ../packages/sbase/source/env root/os/
 cp ../packages/sbase/source/mkdir root/os/
 cp ../packages/sbase/source/rmdir root/os/
 cp ../packages/sbase/source/touch root/os/
+cp ../packages/sbase/source/touch root/os/
+cp ../packages/sbase/source/grep root/os/
 
 # etc
 mkdir root/etc
