@@ -10,9 +10,7 @@ qemu-system-x86_64 \
 -drive if=pflash,format=raw,file=./OVMF_VARS.fd \
 -drive file=disk.raw,format=raw,id=disk0,if=none \
 -device virtio-blk-pci,drive=disk0 \
--device virtio-gpu-pci \
--vga none \
--display gtk
+-device virtio-gpu-pci
 
 
 #-nic none \
