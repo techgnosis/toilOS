@@ -131,3 +131,12 @@ The boot manager can only launch EFI Applications. These are files with the same
 The combination of the boot manager and the EFI Stub means that you don't need GRUB or systemd-boot. You can configure the boot manager directly and cut out the middle man.
 
 You can modify the boot manager using tools like efibootmgr. Modifying the boot manger means adding or removing entries from a list that displays when you turn on your machine. Those entries include a display name and a path to a kernel. The kernels must reside on an EFI System Parition (ESP), which is a partition that is labelled as type EFI and formatted as FAT32.
+
+
+# LimitsOS
+
+Lots of limits. One right way to do most things. No customization. Built with a specific workflow in mind.
+
+# Plain text web
+
+Need places to go on the web that are friendly to a terminal-ready browser. No images or videos.

@@ -1,0 +1,59 @@
+focus on servers instead
+more of an impact, more focused, more appeal
+
+can't be a unikernel but we can get close
+minimal linux
+just the kernel and a custom init
+init has to
+  * mount /sys
+  * setup NIC
+
+focus on VMs
+
+qemu
+  * no display (-vga none)
+  * console=ttyS0
+
+CLI to make various images
+
+App metrics need to come from Prometheus
+Host metrics come from hypervisor
+Logs hopefully can come from hypervisor+ttyS0
+
+
+Docker is for Ruby, Python, and C apps. Docker is for dependencies.
+cgroups and namespaces are for systemd and Docker
+Write apps in Go, Rust, or Zig
+
+
+
+Why not run everything as root? The concern is having root access to the rest of the system. But what if there is no rest of the system?
+You don't need users
+You don't need groups
+You don't need permissions
+You need need shells
+
+stdout file descriptors come from the kernel, so you can emit app logs at the hypervisor level
+
+No need for SSH without users or shells
+
+Can still use environment variables. Those would need to come from the CLI telling the custom init what variables to make
+
+Init -
+Mounts /sys
+Sets IP and route table
+Configures environment variables
+Launches app
+
+
+Do not restart the app at the software level. The VM exists to run the one process. If it dies then we're done.
+
+Dynamic linking - why? Easier to update vulnerabilities. Don't have to rebuild the app.
+
+But what is the danger of the app having vulns in it? The danger is the rest of the system.
+
+CNCF - what's left that matters?
+NATS
+CoreDNS
+Prometheus
+Keycloak

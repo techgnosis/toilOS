@@ -1,2 +1,3 @@
 TODO
 * get network working. ip works but eth0 isnt a real device
+* switch to a non-EFI machine. Maybe some ARM machine. Must have mainline kernel support. Laptop is ARM but desktop is x86_64. Kind of a pain.
